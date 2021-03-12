@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-		<form action="processregister.php" method="post" id="signIn">
+		<form id="signIn">
 			<div class="body">
 				<h1>Login Page</h1>
 				<p>
@@ -16,8 +16,11 @@
 				</p>
 				<p>
 					<button type="submit" name="submit" class="btn">Submit</button>
+					<input type="hidden" name="event" value="login">
 				</p>
 			</div>
-		<!-- </form> -->
+		</form>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="processLogin.js"></script>
 	</body>
 </html>

@@ -12,7 +12,7 @@ $(document).ready(function() {
                         alert("user does not exist");
                         break;
                     case "sl":
-                        window.location="../api/main.php";
+                        alert("successful login");
                         break;
                     case "ip":
                         alert("incorrect password or email");

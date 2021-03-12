@@ -10,10 +10,7 @@
         $email = $_POST['email'];  
         $password = $_POST['password']; 
         $user = new User($email, $password);
+        $user->setFullName($fullName);
         echo $user->register($pdo); 
-    }
-    else
-    {
-       header("Location:login.php");
     }
     ?>

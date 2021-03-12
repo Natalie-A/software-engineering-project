@@ -1,12 +1,12 @@
-$('.btn').click(function(e){
-    $("#signUp").on('submit', function(e){
+$(document).ready(function() {
+    $('#signUp').submit(function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'processregister.php',
+            url: 'processRegister.php',
             data: $(this).serialize(),
             success: function(){ 
-                alert("successful registration");
+                window.location="login.php";
             }
         });
     });

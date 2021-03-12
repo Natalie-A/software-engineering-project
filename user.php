@@ -7,8 +7,6 @@
         protected $fullName;
         protected $email;
         protected $password;
-        protected $cityOfResidence;
-        protected $profile;
 
         function __construct($user,$pass)
         {
@@ -39,30 +37,14 @@
         {        
             return $this->password;       
         } 
-        public function setCityOfResidence ($city)
-        {   
-            $this->cityOfResidence = $city;       
-        }
-        public function getCityOfResidence ()
-        {        
-            return $this->cityOfResidence;       
-        } 
-        public function setProfile ($profilePhoto)
-        {   
-            $this->profile = $profilePhoto;       
-        }
-        public function getProfile ()
-        {        
-            return $this->profile;       
-        } 
         public function register ($pdo)
         {           
             $passwordHash = password_hash($this->password,PASSWORD_DEFAULT);     
             try 
             {  
                 session_start(); 
-                $stmt = $pdo->prepare ('INSERT INTO account_details(full_name,email_address,user_password) VALUES(?,?,?)');
-                $stmt->execute([$this->fullName,$this->email,$passwordHash]);
+                $stmt = $pdo->prepare ('INSERT INTO account_details (full_name,email_address,user_password) VALUES(?,?,?)');
+                $stmt->execute([$this->getFullName(),$this->email,$passwordHash]);
                 $_SESSION["name"]=$this->getFullName();   
             } 
             catch (PDOException $e) 
@@ -75,16 +57,16 @@
             try 
             {  
                 session_start();
-                $stmt = $pdo->prepare("SELECT UserPassword,FullName FROM users WHERE Email=?");
+                $stmt = $pdo->prepare("SELECT user_password,full_name FROM account_details WHERE email_address=?");
                 $stmt->execute([$this->email]);   
                 $row = $stmt->fetch();  
                 if($row == null)
                 {
                     return "uee";//user exist error
                 }          
-                if (password_verify($this->password,$row['UserPassword']))
+                if (password_verify($this->password,$row['user_password']))
                 {       
-                    $_SESSION["name"]=$row["FullName"];    
+                    $_SESSION["name"]=$row["full_name"];    
                     return "sl";
                 }                
                 return "ip";
@@ -93,20 +75,6 @@
             {     
                 return $e->getMessage();
             }   
-        } 
-        public function changePassword($pdo)
-        {
-            $passwordHash = password_hash($this->password,PASSWORD_DEFAULT);     
-            try 
-            {   
-                $stmt = $pdo->prepare ('UPDATE UserPassword where Email=?');
-                $stmt->execute([$this->email,$passwordHash]);  
-                return "Update was successful";
-            } 
-            catch (PDOException $e) 
-            {            	
-                return $e->getMessage();        
-            }       
         } 
         public function logout($pdo)
         {
