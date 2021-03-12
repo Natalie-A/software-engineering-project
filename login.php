@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-		<!-- <form action="processregister.php" method="post"> -->
+		<form action="processregister.php" method="post" id="signIn">
 			<div class="body">
 				<h1>Login Page</h1>
 				<p>
