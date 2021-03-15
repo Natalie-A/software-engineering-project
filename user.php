@@ -43,7 +43,7 @@
             try 
             {  
                 session_start(); 
-                $stmt = $pdo->prepare ('INSERT INTO account_details (full_name,email_address,user_password) VALUES(?,?,?)');
+                $stmt = $pdo->prepare ('INSERT INTO user_details (full_name,email_address,user_password) VALUES(?,?,?)');
                 $stmt->execute([$this->getFullName(),$this->email,$passwordHash]);
                 $_SESSION["name"]=$this->getFullName();   
             } 
@@ -57,7 +57,7 @@
             try 
             {  
                 session_start();
-                $stmt = $pdo->prepare("SELECT user_password,full_name FROM account_details WHERE email_address=?");
+                $stmt = $pdo->prepare("SELECT user_password,full_name FROM user_details WHERE email_address=?");
                 $stmt->execute([$this->email]);   
                 $row = $stmt->fetch();  
                 if($row == null)
