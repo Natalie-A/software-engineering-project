@@ -6,7 +6,7 @@ $(document).ready(function() {
             url: 'processRegister.php',
             data: $(this).serialize(),
             success: function(){ 
-                window.location="login.php";
+                window.location="homePage.php";
             }
         });
     });
