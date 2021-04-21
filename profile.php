@@ -21,5 +21,6 @@
                 </div>
             </header>
         </div>
+        <img src="img/profile.svg" class="image" alt="" />
 	</body>
 </html>

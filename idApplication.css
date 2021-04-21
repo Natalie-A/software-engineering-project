@@ -24,7 +24,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 200px;
+    padding: 15px 100px;
     transition: 0.5s ease;
   }
   
@@ -63,4 +63,63 @@ header{
   
   header .navigation .navigation-items a:hover:before{
     width: 100%;
+  }
+  img{
+    height:200px;
+    width:330px;
+   position:absolute;
+   left:480px;
+  }
+  .line{
+    color: black;
+      outline: none;
+      outline-style: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid black 1px;
+      padding: 12px 30px;
+      width: 900px;
+      text-align: left; 
+      font-size: 22px;
+  }
+  .line:hover{
+    width: 800px;
+  }
+  .body{
+    position: absolute;
+    top: 98%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+  .body1{
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+  .btn {
+    width: 150px;
+    background-color: #0a0b0c;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .btn:hover {
+    background-color: #464647;
+  }
+  .label{
+    font-size: 22px;
+    padding: 30px;
+    color:rgb(88, 88, 88);
+    line-height: 45px;
   }
