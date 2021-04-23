@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once 'user.php';
     include_once 'db.php'; 
     $con = new DBConnector();

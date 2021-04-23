@@ -24,6 +24,7 @@ session_start();
                     <a href="idApplication.php">Apply for an ID</a>
                     <a href="idReapplication.php">Lost/Stolen ID</a>
                     <a href="profile.php">My Profile</a>
+                    <a href="help.php">Instructions</a>
                     <a href="processLogout.php">Logout</a>
                   </div>
                 </div>

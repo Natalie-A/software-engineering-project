@@ -23,7 +23,7 @@
         try 
             {  
                 session_start(); 
-                $stmt = $pdo->prepare ('SELECT full_name,place_of_birth,email_address,home_address,date_of_birth,gender,marital_status,national_id_numer WHERE user_id=?');
+                $stmt = $pdo->prepare ('SELECT full_name,place_of_birth,email_address,home_address,date_of_birth,gender,marital_status,national_id_numer WHERE users_id='.$_SESSION["id"]);
                 $stmt->execute([$this->getFullName()]);
                 $_SESSION["name"]=$this->getFullName();   
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC))
