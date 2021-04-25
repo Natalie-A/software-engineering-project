@@ -37,21 +37,6 @@ $pdo = $con->connectToDB();
         if($stmt->execute()){
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "<hr>";
-<<<<<<< HEAD
-            //echo "<img src = 'Image/".$row['image'].'" />';
-            echo "<br> fullName:$row[full_name]";
-            echo "<br> email_address:$row[email_address]";
-            echo "<br> home_address:$row[home_address]";
-            echo "<br> date_of_birth:$row[date_of_birth]";
-            echo "<br> fathers_name:$row[fathers_name]";
-            echo "<br> mothers_name:$row[mothers_name]";
-            echo "<br> guardians_name:$row[guardians_name]";
-            echo "<br> marital_status:$row[marital_status]";
-            echo "<br> spouse name:$row[spouse_name]";
-            echo "<br> national id number:$row[national_id_number]";
-            echo "<br> place_of_birth:$row[place_of_birth]";
-            echo "<br> gender:$row[gender]";
-=======
         ?>
           <img src="passport/<?php echo $row['passport_photo'];?>" alt=" " height="75" width="75">
         <?php
@@ -66,9 +51,7 @@ $pdo = $con->connectToDB();
             echo "<br> spouse name=$row[spouse_name]";
             echo "<br> national id number=$row[national_id_number]";
             echo "<br> place_of_birth=$row[place_of_birth]";
-            echo "<br> gender=$row[gender]";
->>>>>>> f1d4c0be95bda063a603fdf110caf1a67dba445a
-            
+            echo "<br> gender=$row[gender]";            
             }
         ?>
 	</body>
