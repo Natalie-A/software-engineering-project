@@ -37,14 +37,9 @@ $pdo = $con->connectToDB();
         if($stmt->execute()){
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "<hr>";
-            $image= $row['passport_photo'];
-            $image_src="passport/".$image;
         ?>
           <img src="passport/<?php echo $row['passport_photo'];?>" alt=" " height="75" width="75">
         <?php
-             //echo "<img src = 'passport/".$row['passport_photo'].'" />';
-             
-            //echo '<img src="data:passport/,'.base64_encode( $row['passport_photo'] ).'"/>';
             echo "<br> fullName=$row[full_name]";
             echo "<br> email_address=$row[email_address]";
             echo "<br> home_address=$row[home_address]";
