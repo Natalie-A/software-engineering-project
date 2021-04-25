@@ -71,7 +71,7 @@ session_start();
                 <input type="text" name="spouseName" placeholder="Spouse's Name" class="line">
             </p>
             <p>
-                <input type="number" name="spouseID" placeholder="Spouse's ID Number" class="line">
+                <input type="number" name="spouseID" placeholder="Spouse's ID Number(max 8 numbers)" class="line"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8" >
             </p>
             <p>
                 <label class="label" for="passport">Passport Photo: </label>

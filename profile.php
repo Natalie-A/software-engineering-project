@@ -35,10 +35,10 @@ $pdo = $con->connectToDB();
         $stmt=$pdo->prepare("SELECT * FROM user_details where users_id=:users_id");
         $stmt->bindParam(":users_id",$users_id,PDO::PARAM_INT,1);
         if($stmt->execute()){
-            echo " Success <br>";
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "<hr>";
-            //echo "<img src = 'Image/".$row['image'].'" />';
+            //echo "<img src = 'passport/".$row['passport_photo'].'" />';
+            echo '<img src="data:passport/,'.base64_encode( $row['passport_photo'] ).'"/>';
             echo "<br> fullName=$row[full_name]";
             echo "<br> email_address=$row[email_address]";
             echo "<br> home_address=$row[home_address]";
