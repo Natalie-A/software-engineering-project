@@ -29,7 +29,7 @@ $pdo = $con->connectToDB();
                 </div>
             </header>
         </div>
-        <img src="img/profile.svg" class="image" alt="" />
+        <!-- <img src="img/profile.svg" class="image" alt="" /> -->
         <?php
         $users_id=$_SESSION['id'];
         $stmt=$pdo->prepare("SELECT * FROM user_details where users_id=:users_id");
@@ -39,18 +39,18 @@ $pdo = $con->connectToDB();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "<hr>";
             //echo "<img src = 'Image/".$row['image'].'" />';
-            echo "<br> fullName=$row[full_name]";
-            echo "<br> email_address=$row[email_address]";
-            echo "<br> home_address=$row[home_address]";
-            echo "<br> date_of_birth=$row[date_of_birth]";
-            echo "<br> fathers_name=$row[fathers_name]";
-            echo "<br> mothers_name=$row[mothers_name]";
-            echo "<br> guardians_name=$row[guardians_name]";
-            echo "<br> marital_status=$row[marital_status]";
-            echo "<br> spouse name=$row[spouse_name]";
-            echo "<br> national id number=$row[national_id_number]";
-            echo "<br> place_of_birth=$row[place_of_birth]";
-            echo "<br> gender=$row[gender]";
+            echo "<br> fullName:$row[full_name]";
+            echo "<br> email_address:$row[email_address]";
+            echo "<br> home_address:$row[home_address]";
+            echo "<br> date_of_birth:$row[date_of_birth]";
+            echo "<br> fathers_name:$row[fathers_name]";
+            echo "<br> mothers_name:$row[mothers_name]";
+            echo "<br> guardians_name:$row[guardians_name]";
+            echo "<br> marital_status:$row[marital_status]";
+            echo "<br> spouse name:$row[spouse_name]";
+            echo "<br> national id number:$row[national_id_number]";
+            echo "<br> place_of_birth:$row[place_of_birth]";
+            echo "<br> gender:$row[gender]";
             
             }
         ?>
