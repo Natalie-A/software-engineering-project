@@ -61,9 +61,9 @@ class USER implements Account
             }
             if (password_verify($this->password, $row['user_password'])) {
                 $_SESSION["id"] = $row["users_id"];
-                return "sl";
+                return "sl";//successful login
             }
-            return "ip";
+            return "ip";//incorrect password
         } catch (PDOException $e) {
             return $e->getMessage();
         }

@@ -1,5 +1,5 @@
-$('.btn').click(function (e) {
-    $("#reApplication").on('submit', function (e) {
+$('.btn').click(function(e) {
+    $("#reApplication").on('submit', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -9,7 +9,7 @@ $('.btn').click(function (e) {
             contentType: false,
             cache: false,
             processData: false,
-            success: function () {
+            success: function() {
                 alert("Successful ID Re-Application!");
                 window.location.href = "homePage.php";
             }

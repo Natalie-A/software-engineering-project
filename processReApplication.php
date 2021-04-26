@@ -5,8 +5,7 @@ include_once 'db.php';
 $con = new DBConnector();
 $pdo = $con->connectToDB();
 $event = isset($_POST['event']) ? $_POST['event'] : "";
-if ($event == "reApply") 
-{
+if ($event == "reApply") {
     $uploadNationalIDTo = null;
     if (isset($_FILES['natID'])) {
         $nat_id_name = $_FILES['natID']['name'];
@@ -26,6 +25,15 @@ if ($event == "reApply")
         $uploadPoliceAbstractTo = $uploadLocation . $police_abstract_name;
         $movePoliceAbstract = move_uploaded_file($police_abstract_tmp, $uploadPoliceAbstractTo);
     }
-    $stmt = $pdo->prepare("UPDATE user_documents SET police_abstract_copy=?, national_id_copy=? WHERE users_id=".$_SESSION["id"]);
-    $stmt->execute([$nat_id_name, $police_abstract_name]);
+    $stmt = $pdo->prepare("SELECT police_abstract_copy,national_id_copy FROM user_documents WHERE users_id=?");
+    $stmt->execute([$_SESSION["id"]]);
+    $row = $stmt->fetch();
+    if ($row == null) {
+        $stmt = $pdo->prepare("INSERT INTO user_documents(police_abstract_copy, national_id_copy, users_id) VALUES (?,?,?)");
+        $stmt->execute([$nat_id_name, $police_abstract_name, $_SESSION["id"]]);
+    }
+    else{
+        $stmt = $pdo->prepare("UPDATE user_documents SET police_abstract_copy=?,national_id_copy=? WHERE users_id=".$_SESSION["id"]);
+        $stmt->execute([$nat_id_name, $police_abstract_name]);
+    }
 }
