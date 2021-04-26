@@ -42,7 +42,8 @@ session_start();
                 </datalist>
             </p>
             <p>
-                <input type="date" min="01-01-2003" name="dob" placeholder="Date of Birth" class="line" required>
+            <input type="date" name="dob" placeholder="Date of Birth" class="line" min="1920-01-01" max="2003-04-27" required>
+
             </p>
             <p>
                 <input type="text" name="fatherName" placeholder="Father's Name" class="line">
